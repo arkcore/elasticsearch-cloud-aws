@@ -135,7 +135,7 @@ public class S3Repository extends BlobStoreRepository {
         logger.debug("using bucket [{}], region [{}], endpoint [{}], protocol [{}], chunk_size [{}], server_side_encryption [{}], buffer_size [{}], max_retries [{}]",
                 bucket, region, endpoint, protocol, chunkSize, serverSideEncryption, bufferSize, maxRetries);
 
-        blobStore = new S3BlobStore(settings, s3Service.client(endpoint, protocol, region, repositorySettings.settings().get("access_key"), repositorySettings.settings().get("secret_key"), maxRetries), bucket, region, serverSideEncryption, bufferSize, maxRetries);
+        blobStore = new S3BlobStore(settings, s3Service.client(endpoint, protocol, region, repositorySettings.settings().get("access_key"), repositorySettings.settings().get("secret_key"), maxRetries), bucket, region, threadPool, serverSideEncryption);
         String basePath = repositorySettings.settings().get("base_path", null);
         if (Strings.hasLength(basePath)) {
             BlobPath path = new BlobPath();
