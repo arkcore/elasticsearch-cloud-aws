@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>org.elasticsearch</groupId>
-        <artifactId>elasticsearch-parent</artifactId>
+        <artifactId>elasticsearch</artifactId>
         <version>1.3.7</version>
     </parent>
 
